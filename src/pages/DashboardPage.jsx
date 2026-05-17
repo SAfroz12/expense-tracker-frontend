@@ -1,75 +1,39 @@
-import { useState, useEffect } from "react";
+import Layout from "../components/layout/Layout";
 
-import AddTransaction from "../components/AddTransaction";
-import TransactionList from "../components/TransactionList";
-import BorrowForm from "../components/BorrowForm";
-import BorrowList from "../components/BorrowList";
-import Dashboard from "../components/Dashboard";
-import ExpenseChart from "../components/ExpenseChart";
+import DashboardCards from "../components/dashboard/DashboardCards";
+
+import RecentExpenses from "../components/dashboard/RecentExpenses";
 
 function DashboardPage() {
 
-  const [transactions, setTransactions] = useState(() => {
-    const saved = localStorage.getItem("transactions");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  const [loans, setLoans] = useState(() => {
-    const saved = localStorage.getItem("loans");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  }, [transactions]);
-
-  useEffect(() => {
-    localStorage.setItem("loans", JSON.stringify(loans));
-  }, [loans]);
-
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <Layout>
 
-      <h1 className="text-4xl font-bold text-center mb-8 text-cyan-600">
-        💰 Expense Tracker Dashboard
-      </h1>
+      <div className="space-y-6">
 
-      <Dashboard transactions={transactions} />
+        <DashboardCards />
 
-      <div className="bg-white p-5 rounded-2xl shadow mb-6">
-        <ExpenseChart transactions={transactions} />
-      </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-      <div className="grid md:grid-cols-2 gap-6">
+          <RecentExpenses />
 
-        <div className="bg-white p-5 rounded-2xl shadow">
-          <h2 className="text-xl font-semibold mb-3">
-            Add Transaction
-          </h2>
+          <div className="bg-white p-6 rounded-3xl shadow-md">
 
-          <AddTransaction setTransactions={setTransactions} />
+            <h2 className="text-2xl font-bold mb-4 text-slate-700">
+              Analytics
+            </h2>
 
-          <TransactionList
-            transactions={transactions}
-            setTransactions={setTransactions}
-          />
-        </div>
+            <p className="text-gray-500">
+              Charts coming next...
+            </p>
 
-        <div className="bg-white p-5 rounded-2xl shadow">
-          <h2 className="text-xl font-semibold mb-3">
-            Borrow Money
-          </h2>
+          </div>
 
-          <BorrowForm setLoans={setLoans} />
-
-          <BorrowList
-            loans={loans}
-            setLoans={setLoans}
-          />
         </div>
 
       </div>
-    </div>
+
+    </Layout>
   );
 }
 

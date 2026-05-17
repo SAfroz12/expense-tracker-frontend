@@ -1,21 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./UI/LoginPage";
-import DashboardPage from "./pages/DashboardPage"
-function App() {
+import AppRoutes from "./routes/AppRoutes";
 
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route
-            path="/dashboard"
-            element={<DashboardPage />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+function App() {
+  return <AppRoutes />;
 }
 
 export default App;
