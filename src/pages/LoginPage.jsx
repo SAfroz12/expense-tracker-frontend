@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 function LoginPage() {
   const [isSignup, setIsSignup] = useState(false);
@@ -17,12 +16,7 @@ function LoginPage() {
 
       {/* LEFT SIDE */}
 
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="hidden lg:flex w-1/2 items-center justify-center p-10"
-      >
+    <div className="hidden lg:flex w-1/2 items-center justify-center p-10">
 
         <div className="relative">
 
@@ -36,16 +30,11 @@ function LoginPage() {
 
         </div>
 
-      </motion.div>
+      </div>
 
       {/* RIGHT SIDE */}
 
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-1 items-center justify-center p-8"
-      >
+   <div className="flex flex-1 items-center justify-center p-8">
 
         <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-[35px] shadow-2xl">
 
@@ -126,7 +115,7 @@ function LoginPage() {
 
         </div>
 
-      </motion.div>
+      </div>
 
     </div>
   );

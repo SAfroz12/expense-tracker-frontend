@@ -17,6 +17,7 @@ function AppRoutes() {
         <Route path="/loans" element={<LoanPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+     
       </Routes>
     </BrowserRouter>
   );
